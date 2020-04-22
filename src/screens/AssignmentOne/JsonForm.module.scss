@@ -1,0 +1,12 @@
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+
+  .field {
+    margin: 10px 0 10px 0;
+  }
+
+  label {
+    display: block;
+  }
+}

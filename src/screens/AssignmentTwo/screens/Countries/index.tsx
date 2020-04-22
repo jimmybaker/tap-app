@@ -1,5 +1,11 @@
 import React, { useEffect } from "react";
-import { ListItem, ListItemText, CircularProgress } from "@material-ui/core";
+import {
+  ListItem,
+  ListItemText,
+  CircularProgress,
+  Typography,
+  Paper,
+} from "@material-ui/core";
 import useCountries from "src/hooks/useCountries";
 import { useHistory, Route, useParams, Switch } from "react-router-dom";
 import { FixedSizeList } from "react-window";
@@ -44,14 +50,20 @@ const Countries: React.FC = () => {
 
   return (
     <div className={styles.wrapper}>
-      <FixedSizeList
-        height={500}
-        width={500}
-        itemSize={46}
-        itemCount={countries.length}
-      >
-        {renderRow}
-      </FixedSizeList>
+      <div>
+        <Typography variant="h5">Select a country from the list</Typography>
+        <Paper elevation={0} variant="outlined">
+          <FixedSizeList
+            height={500}
+            width={500}
+            itemSize={46}
+            itemCount={countries.length}
+          >
+            {renderRow}
+          </FixedSizeList>
+        </Paper>
+      </div>
+
       <Switch>
         <Route path="/two/regions/:acronym/:alpha2Code">
           <CountryDetail />

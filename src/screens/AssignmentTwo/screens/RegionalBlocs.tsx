@@ -5,12 +5,12 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import { FixedSizeList } from "react-window";
 import usePageTitle from "src/hooks/usePageTitle";
-import { Typography, Paper, Divider } from "@material-ui/core";
+import { Typography, Paper } from "@material-ui/core";
 
 const RegionalBlocs: React.FC = () => {
   const { setPageTitle } = usePageTitle();
   const history = useHistory();
-  const { blocs, loading } = useRegionalBlocs();
+  const { blocs } = useRegionalBlocs();
 
   useEffect(() => {
     setPageTitle("Regions");

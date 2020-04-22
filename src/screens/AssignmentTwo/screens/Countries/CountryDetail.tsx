@@ -27,8 +27,6 @@ const CountryDetail: React.FC = () => {
     return <CircularProgress />;
   }
 
-  console.log(country.flag);
-
   return (
     <Card className={styles.country}>
       <CardMedia

@@ -1,3 +1,5 @@
+declare module "react-json-editor";
+
 interface ICountry {
   name: string;
   topLevelDomain: string[];
@@ -42,4 +44,25 @@ interface IRegionalBloc {
   name: string;
   otherAcronyms: string[];
   otherNames: string[];
+}
+
+interface IFormField {
+  fieldKey: string;
+  type: string;
+  label: string;
+  required?: boolean;
+  options?: IFormFieldOption[];
+}
+
+interface IUnsanitizedFormField {
+  key: string;
+  type: string;
+  label: string;
+  required?: boolean;
+  options?: IFormFieldOption[];
+}
+
+interface IFormFieldOption {
+  label: string;
+  value: string;
 }

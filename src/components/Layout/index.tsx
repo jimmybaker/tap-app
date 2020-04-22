@@ -153,15 +153,12 @@ const Layout: React.FC = observer(() => {
             </ListItemIcon>
             <ListItemText primary="About" />
           </ListItem>
-          <ListItem
-            button
-            key="Assignment 1"
-            onClick={() => history.push("/one")}
-          >
+          <ListSubheader>Assignment 1</ListSubheader>
+          <ListItem button key="json" onClick={() => history.push("/one")}>
             <ListItemIcon>
               <AssignmentIcon />
             </ListItemIcon>
-            <ListItemText primary="Assignment 1" />
+            <ListItemText primary="JSON Form" />
           </ListItem>
           <ListSubheader>Assignment 2</ListSubheader>
           <ListItem button key="Regions" onClick={() => history.push("/two")}>
