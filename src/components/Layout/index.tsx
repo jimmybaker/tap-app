@@ -21,6 +21,12 @@ import { Switch, Route, useHistory } from "react-router-dom";
 import About from "../../screens/About";
 import AssignmentTwo from "../../screens/AssignmentTwo";
 import AssignmentOne from "../../screens/AssignmentOne";
+import { observer } from "mobx-react";
+import usePageTitle from "../../hooks/usePageTitle";
+
+interface IProps {
+  appState: any;
+}
 
 const drawerWidth = 240;
 
@@ -81,11 +87,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Layout() {
+const Layout: React.FC = observer(() => {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(true);
   const history = useHistory();
+  const { pageTitle, setPageTitle } = usePageTitle();
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -115,7 +122,7 @@ export default function Layout() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            Page Title Here
+            {pageTitle}
           </Typography>
         </Toolbar>
       </AppBar>
@@ -188,4 +195,6 @@ export default function Layout() {
       </main>
     </div>
   );
-}
+});
+
+export default Layout;
