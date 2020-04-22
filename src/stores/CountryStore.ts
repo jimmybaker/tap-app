@@ -3,10 +3,10 @@ import { createContext } from "react";
 
 class CountryStore {
   @observable
-  countries: any[] = [];
+  countries: ICountry[] = [];
 
   @action
-  setCountries = (countries: any[]) => {
+  setCountries = (countries: ICountry[]) => {
     this.countries = countries;
   };
 }

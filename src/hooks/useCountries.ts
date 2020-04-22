@@ -1,14 +1,15 @@
 import { useContext, useState, useEffect } from "react";
 import { CountryStoreContext } from "../stores/CountryStore";
 
-export default function useCountries() {
-  const [result, setResult] = useState<any[]>([]);
+interface IFilters {
+  acronym?: string;
+}
+
+export default function useCountries({ acronym }: IFilters = {}) {
+  const [result, setResult] = useState<ICountry[]>([]);
   const [loading, setLoading] = useState(false);
   const { countries, setCountries } = useContext(CountryStoreContext);
 
-  // if(countries.length) {
-  //   return { countries, loading }
-  // }
   useEffect(() => {
     async function fetchCountries() {
       setLoading(true);
@@ -21,11 +22,19 @@ export default function useCountries() {
     }
 
     if (countries.length) {
-      setResult(countries);
+      if (acronym) {
+        setResult(
+          countries.filter((c) =>
+            c.regionalBlocs.map((r) => r.acronym).includes(acronym)
+          )
+        );
+      } else {
+        setResult(countries);
+      }
     } else {
       fetchCountries();
     }
-  }, [countries, setCountries]);
+  }, [countries, setCountries, acronym]);
 
   return { countries: result, loading };
 }

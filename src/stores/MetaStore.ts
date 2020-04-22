@@ -6,7 +6,7 @@ class MetaStore {
   pageTitle: string = "";
 
   @action
-  setPageTitle = (value: string) => {
+  setPageTitle = (value: string = "") => {
     this.pageTitle = value;
   };
 }

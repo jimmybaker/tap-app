@@ -23,6 +23,7 @@ import AssignmentTwo from "../../screens/AssignmentTwo";
 import AssignmentOne from "../../screens/AssignmentOne";
 import { observer } from "mobx-react";
 import usePageTitle from "../../hooks/usePageTitle";
+import { ListSubheader } from "@material-ui/core";
 
 interface IProps {
   appState: any;
@@ -92,7 +93,7 @@ const Layout: React.FC = observer(() => {
   const theme = useTheme();
   const [open, setOpen] = React.useState(true);
   const history = useHistory();
-  const { pageTitle, setPageTitle } = usePageTitle();
+  const { pageTitle } = usePageTitle();
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -162,15 +163,22 @@ const Layout: React.FC = observer(() => {
             </ListItemIcon>
             <ListItemText primary="Assignment 1" />
           </ListItem>
+          <ListSubheader>Assignment 2</ListSubheader>
+          <ListItem button key="Regions" onClick={() => history.push("/two")}>
+            <ListItemIcon>
+              <AssignmentIcon />
+            </ListItemIcon>
+            <ListItemText primary="Regions" />
+          </ListItem>
           <ListItem
             button
-            key="Assignment 2"
-            onClick={() => history.push("/two")}
+            key="Countries"
+            onClick={() => history.push("/two/countries")}
           >
             <ListItemIcon>
               <AssignmentIcon />
             </ListItemIcon>
-            <ListItemText primary="Assignment 2" />
+            <ListItemText primary="Countries" />
           </ListItem>
         </List>
       </Drawer>
